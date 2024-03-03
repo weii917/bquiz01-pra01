@@ -20,7 +20,7 @@
 
                         <!---因為可能會同時送出多筆資料，所以欄位屬性加上陣列-->
                         <td><input type="text" style="width:90%" name="text[]" value="<?= $row['text']; ?>"></td>
-                        <!-- 注意sh標題只要一個顯示，並且判斷是否等於1要checked讓它顯示被選擇狀態 -->
+                        <!-- 判斷是否等於1要checked讓它顯示被選擇狀態 -->
                         <td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>></td>
                         <!-- 12-3.複製新增按鈕改成upload所有更新都在此，除了table參數並帶有id參數 -->
                         <td><input type="checkbox" name="del[]" value="<?= $row['id'] ?>"></td>

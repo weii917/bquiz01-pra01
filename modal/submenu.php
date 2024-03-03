@@ -28,7 +28,7 @@ include_once "../api/db.php";
         ?>
     </table>
     <div>
-        <input type="submit" value="新增">
+        <input type="submit" value="修改確定">
         <input type="reset" value="重置">
         <input type="button" value="更多次選單" onclick="more()">
         <input type="hidden" name="table" value="<?= $_GET['table'] ?>">

@@ -26,8 +26,8 @@
                         <td><input type="text" name="text[]" value="<?= $row['text']; ?>"></td>
                         <!-- 注意sh標題只要一個顯示，並且判斷是否等於1要checked讓它顯示被選擇狀態 -->
                         <td><input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>></td>
-                        <!-- 12-3.複製新增按鈕改成upload所有更新都在此，除了table參數並帶有id參數 -->
                         <td><input type="checkbox" name="del[]" value="<?= $row['id'] ?>"></td>
+                        <!-- 12-3.複製新增按鈕改成upload所有更新都在此，除了table參數並帶有id參數 -->
                         <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do; ?>&id=<?= $row['id'] ?>')" value="更新圖片"></td>
                         <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                         <!-- 15-1.加入隱藏id -->
