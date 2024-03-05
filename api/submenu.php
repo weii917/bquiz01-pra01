@@ -1,30 +1,29 @@
-<!-- 21-2建立次選單編輯api -->
 <?php
 include_once "db.php";
+$table = $_POST['table'];
+unset($_POST['table']);
+$DB = ${ucfirst($table)};
+
 if (isset($_POST['id'])) {
     foreach ($_POST['id'] as $idx => $id) {
         if (isset($_POST['del']) && in_array($id, $_POST['del'])) {
-            $Menu->del($id);
+            $DB->del($id);
         } else {
-            $row = $Menu->find($id);
+            $row = $DB->find($id);
             $row['text'] = $_POST['text'][$idx];
             $row['href'] = $_POST['href'][$idx];
-            $Menu->save($row);
+            $DB->save($row);
         }
     }
 }
-
 if (isset($_POST['add_text'])) {
-    foreach ($_POST['add_text'] as $idx => $text) {
-        if ($text != "") {
-            $data = [];
-            $data['text'] = $text;
-            $data['href'] = $_POST['add_href'][$idx];
-            $data['sh'] = 1;
-            $data['menu_id'] = $_POST['menu_id'];
-            $Menu->save($data);
+    foreach ($_POST['add_text'] as $text) {
+        if ($text != '') {
+            $row['text'] = $text;
+            $row['href'] = $_PSOT['add_href'][$idx];
+            $row['menu_id'] = $_POST['menu_id'];
+            $DB->save($row);
         }
     }
 }
-to("../back.php?do=menu");
-?>
+to("../back.php?do=$table");
