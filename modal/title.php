@@ -1,5 +1,5 @@
 <h3 class="cent">新增標題區圖片</h3>
-<form action="./api/add.php" method="post">
+<form action="./api/add.php" method="post" enctype="multipart/form-data">
     <table>
         <tr>
             <td>標題區圖片:</td>
