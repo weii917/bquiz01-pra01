@@ -1,11 +1,11 @@
-<!-- 18-4.快速套用所有功能的新增，同時新增news資料表 -->
-<h3>新增最新消息資料</h3>
+<h3 class="cent">新增最新消息資料</h3>
 <hr>
 <form action="./api/add.php" method="post" enctype="multipart/form-data">
     <table>
         <tr>
             <td>最新消息資料:</td>
-            <td><textarea name="text" style="width:300px;height:150px"></textarea></td>
+            <td><textarea name="text" style="width:300px;height:150px"></textarea>
+            </td>
         </tr>
     </table>
     <div>

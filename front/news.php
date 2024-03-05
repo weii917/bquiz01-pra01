@@ -1,14 +1,13 @@
-<!-- 3.login.php 將class="di"的區塊從39到65包含了要顯示彈跳視窗的容器及script,另件個檔案存放用來引入 -->
-<!-- 25.完成更多最新消息功能 -->
 <div class="di"
     style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
-    <!-- 22-2.動態文字前台功能 -->
-    <?php include "marquee.php"; ?>
+    <?php
+	include "marquee.php";
+	?>
     <div style="height:32px; display:block;"></div>
     <!--正中央-->
     <h3>更多最新消息顯示區</h3>
     <?php
-	$total = $DB->count(['sh' => 1]);
+	$total = $News->count(['sh' => 1]);
 	$div = 5;
 	$pages = ceil($total / $div);
 	$now = $_GET['p'] ?? 1;
@@ -27,7 +26,6 @@
 		}
 		?>
     </ol>
-
     <div class="cent">
         <?php
 		if ($now - 1 > 0) {
@@ -43,6 +41,7 @@
 			echo "<a href='?do=$do&p=$next'> > </a>";
 		}
 		?>
+
     </div>
 </div>
 <div id="alt"
@@ -51,7 +50,7 @@
 <script>
 $(".sswww").hover(
     function() {
-        $("#alt").html("<pre>" + $(this).children(".all").html() + "</pre>").css({
+        $("#alt").html("" + $(this).children(".all").html() + "").css({
             "top": $(this).offset().top - 50
         })
         $("#alt").show()

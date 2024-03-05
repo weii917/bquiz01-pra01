@@ -1,7 +1,6 @@
-<!-- 18-1.快速套用所有功能的新增，同時新增ad資料表 -->
-<h3>新增動態文字廣告</h3>
+<h3 class="cent">新增動態文字廣告</h3>
 <hr>
-<form action="./api/add.php" method="post">
+<form action="./api/add.php" method="post" enctype="multipart/form-data">
     <table>
         <tr>
             <td>動態文字廣告:</td>

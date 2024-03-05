@@ -1,10 +1,9 @@
-<!-- 6.建立共用函式db.php檔 -->
 <?php
 date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB
 {
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db0101";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db01";
     protected $pdo;
     protected $table;
 
@@ -131,7 +130,7 @@ $Image = new DB('image');
 $News = new DB('news');
 $Admin = new DB('admin');
 $Menu = new DB('menu');
-// 6.加入判斷do是什麼給$DB當資料表物件變數
+
 if (isset($_GET['do'])) {
     if (isset(${ucfirst($_GET['do'])})) {
         $DB = ${ucfirst($_GET['do'])};
@@ -139,10 +138,8 @@ if (isset($_GET['do'])) {
 } else {
     $DB = $Title;
 }
-// 6.end 加入判斷do是什麼給$DB當資料表物件變數
 
-// 29.進站人數的功能
 if (!isset($_SESSION['visited'])) {
-    $Total->q("update `total` set `total`=`total`+1 where `id`=1");
+    $Total->q("update `total`set `total`=`total`+1  where `id`=1 ");
     $_SESSION['visited'] = 1;
 }
