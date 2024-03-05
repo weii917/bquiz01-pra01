@@ -1,6 +1,4 @@
-<!-- 3.login.php 將class="di"的區塊另件個檔案存放用來引入 -->
 <?php
-// 28-1.判斷是否登入，登入不成功有錯誤訊息
 if (isset($_SESSION['login'])) {
 	to("back.php");
 }
@@ -8,9 +6,12 @@ if (isset($_GET['error'])) {
 	echo "<script>alert('{$_GET['error']}')</script>";
 }
 ?>
+
 <div class="di" style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
-	<!-- 22-2.動態文字前台功能 -->
-	<?php include "marquee.php"; ?>
+
+	<?php
+	include "marquee.php";
+	?>
 	<div style="height:32px; display:block;"></div>
 	<!--正中央-->
 	<form method="post" action="./api/check.php">

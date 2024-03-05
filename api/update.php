@@ -1,4 +1,3 @@
-<!-- 16.撰寫更新圖片api -->
 <?php
 include_once "db.php";
 $table = $_POST['table'];
@@ -10,4 +9,3 @@ if (isset($_FILES['img']['tmp_name'])) {
 }
 $DB->save($row);
 to("../back.php?do=$table");
-?>

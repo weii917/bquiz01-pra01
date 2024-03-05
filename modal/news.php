@@ -1,4 +1,3 @@
-<!-- 18-4.快速套用所有功能的新增，同時新增news資料表 -->
 <h3>新增最新消息資料</h3>
 <hr>
 <form action="./api/add.php" method="post" enctype="multipart/form-data">

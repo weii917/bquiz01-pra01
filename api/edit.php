@@ -1,7 +1,7 @@
-<!--  17.撰寫編輯資料api -->
 <?php
 include_once "db.php";
-
+// dd($_POST);
+// exit;
 $table = $_POST['table'];
 $DB = ${ucfirst($table)};
 unset($_POST['table']);

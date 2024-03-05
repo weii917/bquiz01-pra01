@@ -1,4 +1,3 @@
-<!-- 18-5.快速套用所有功能的新增，同時新增admin資料表 -->
 <h3>新增管理者帳號</h3>
 <hr>
 <form action="./api/add.php" method="post" enctype="multipart/form-data">
