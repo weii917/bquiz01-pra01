@@ -17,10 +17,11 @@ if (isset($_POST['id'])) {
     }
 }
 if (isset($_POST['add_text'])) {
-    foreach ($_POST['add_text'] as $text) {
+    foreach ($_POST['add_text'] as $idx => $text) {
         if ($text != '') {
             $row['text'] = $text;
-            $row['href'] = $_PSOT['add_href'][$idx];
+            $row['href'] = $_POST['add_href'][$idx];
+            $row['sh'] = 1;
             $row['menu_id'] = $_POST['menu_id'];
             $DB->save($row);
         }
