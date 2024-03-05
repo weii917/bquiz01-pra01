@@ -23,13 +23,10 @@ include_once "./api/db.php";
             <div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
         </div>
     </div>
-
+    <iframe style="display:none;" name="back" id="back"></iframe>
     <div id="main">
-        <?php
-		$title = $Title->find(['sh' => 1]);
-		?>
-        <a title="<?= $title['text']; ?>" href="index.php">
-            <div class="ti" style="background:url(&#39;./img/<?= $title['img']; ?>&#39;); background-size:cover;"></div>
+        <a title="" href="./home_files/home.htm">
+            <div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div>
             <!--標題-->
         </a>
         <div id="ms">
@@ -37,109 +34,39 @@ include_once "./api/db.php";
                 <div id="menuput" class="dbor">
                     <!--主選單放此-->
                     <span class="t botli">主選單區</span>
-                    <?php
-					$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
-					foreach ($mainmu as $main) {
-					?>
-                    <div class="mainmu">
-                        <a href="<?= $main['href']; ?>">
-                            <?= $main['text']; ?>
-                        </a>
-                        <div class="mw">
-                            <?php
-								if ($Menu->count(['menu_id' => $main['id']]) > 0) {
-									$subs = $Menu->all(['menu_id' => $main['id']]);
-									foreach ($subs as $sub) {
-								?>
-                            <div class="mainmu2">
-                                <a href="<?= $sub['href']; ?>">
-                                    <?= $sub['text']; ?>
-                                </a>
-                            </div>
-                            <?php
-									}
-								}
-								?>
-                        </div>
-                    </div>
-                    <?php
-					}
-					?>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-                    <span class="t">進站總人數 :<?= $Total->find(1)['total']; ?></span>
+                    <span class="t">進站總人數 :
+                        <?= $Total->find(1)['total']; ?> </span>
                 </div>
             </div>
-            <!--  -->
+
+            <!-- main -->
             <?php
 			$do = $_GET['do'] ?? 'main';
 			$file = "./front/{$do}.php";
-			if (file_exists($file)) {
+			if (file_exists(($file))) {
 				include $file;
 			} else {
 				include "./front/main.php";
 			}
 			?>
-            <div id="alt"
-                style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
-            </div>
-            <script>
-            $(".sswww").hover(
-                function() {
-                    $("#alt").html("" + $(this).children(".all").html() + "").css({
-                        "top": $(this).offset().top - 50
-                    })
-                    $("#alt").show()
-                }
-            )
-            $(".sswww").mouseout(
-                function() {
-                    $("#alt").hide()
-                }
-            )
-            </script>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
-                <?php
-				if (isset($_SESSION['login'])) {
-				?>
                 <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                    onclick="lo('back.php')">返回管理</button>
-                <?php
-				} else {
-				?>
-                <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                    onclick="lo('?do=login')">管理登入</button>
-                <?php
-				}
-				?>
-
+                    onclick="lo(&#39;?do=login&#39;)">管理登入</button>
                 <div style="width:89%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
-                    <div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
-                    <?php
-					$imgs = $Image->all(['sh' => 1]);
-					foreach ($imgs as $idx => $img) {
-					?>
-                    <div id="ssaa<?= $idx; ?>" class="im cent">
-                        <img src="./img/<?= $img['img']; ?>"
-                            style="width:150px;height:103px;border:3px solid orange;margin:3px">
-                    </div>
-                    <?php
-					}
-					?>
-
-                    <div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
                     <script>
                     var nowpage = 0,
-                        num = <?= $Image->count(['sh' => 1]); ?>;
+                        num = 0;
 
                     function pp(x) {
                         var s, t;
                         if (x == 1 && nowpage - 1 >= 0) {
                             nowpage--;
                         }
-                        if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
+                        if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
                             nowpage++;
                         }
                         $(".im").hide()

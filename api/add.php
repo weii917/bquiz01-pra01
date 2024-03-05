@@ -1,11 +1,10 @@
 <?php
 include_once "db.php";
-
 $table = $_POST['table'];
 unset($_POST['table']);
 $DB = ${ucfirst($table)};
 
-if ($table !== 'admin') {
+if ($table != 'admin') {
     $_POST['sh'] = ($table == 'title') ? 0 : 1;
 } else {
     unset($_POST['pw2']);

@@ -1,7 +1,7 @@
 <?php
 include_once "db.php";
-
 $table = $_POST['table'];
+
 unset($_POST['table']);
 $DB = ${ucfirst($table)};
 
@@ -15,7 +15,7 @@ foreach ($_POST['id'] as $idx => $id) {
         }
         switch ($table) {
             case 'title':
-                $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
+                $row['sh'] = (isset($_POST['sh']) && $id == $_POST['sh']) ? 1 : 0;
                 break;
             case 'admin':
                 $row['acc'] = $_POST['acc'][$idx];
@@ -31,5 +31,4 @@ foreach ($_POST['id'] as $idx => $id) {
         $DB->save($row);
     }
 }
-
 to("../back.php?do=$table");

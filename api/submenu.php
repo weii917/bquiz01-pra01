@@ -1,6 +1,5 @@
 <?php
 include_once "db.php";
-
 $table = $_POST['table'];
 unset($_POST['table']);
 $DB = ${ucfirst($table)};
@@ -17,19 +16,14 @@ if (isset($_POST['id'])) {
         }
     }
 }
-
-
 if (isset($_POST['add_text'])) {
-    foreach ($_POST['add_text'] as $idx => $text) {
+    foreach ($_POST['add_text'] as $text) {
         if ($text != '') {
-            $row = [];
             $row['text'] = $text;
-            $row['href'] = $_POST['add_href'][$idx];
-            $row['sh'] = 1;
+            $row['href'] = $_PSOT['add_href'][$idx];
             $row['menu_id'] = $_POST['menu_id'];
             $DB->save($row);
         }
     }
 }
-
 to("../back.php?do=$table");
