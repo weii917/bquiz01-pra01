@@ -16,9 +16,12 @@ if (isset($_POST['id'])) {
         }
     }
 }
+
 if (isset($_POST['add_text'])) {
     foreach ($_POST['add_text'] as $idx => $text) {
         if ($text != '') {
+
+            $row = [];
             $row['text'] = $text;
             $row['href'] = $_POST['add_href'][$idx];
             $row['sh'] = 1;
@@ -27,4 +30,6 @@ if (isset($_POST['add_text'])) {
         }
     }
 }
+
+
 to("../back.php?do=$table");

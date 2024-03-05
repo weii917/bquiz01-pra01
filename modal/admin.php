@@ -3,7 +3,7 @@
     <table>
         <tr>
             <td>帳號:</td>
-            <td><input type="text" name="text" id=""></td>
+            <td><input type="text" name="acc" id=""></td>
         </tr>
         <tr>
             <td>密碼:</td>

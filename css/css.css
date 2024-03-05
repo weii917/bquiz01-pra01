@@ -75,6 +75,21 @@ body {
 	line-height: 30px;
 	padding: 2px 10px 2px 10px;
 	margin: 7px 1px 7px 1px;
+	height: 30px;
+}
+
+.mw {
+	position: relative;
+	left: 100px;
+	top: -20px;
+	z-index: 10;
+	display: none;
+}
+
+.mainmu a {
+	text-decoration: none;
+	display: block;
+	color: black;
 }
 
 .mainmu:hover {
