@@ -139,9 +139,9 @@ $Menu = new DB('menu');
 if (isset($_GET['do'])) {
     if (isset(${ucfirst($_GET['do'])})) {
         $DB = ${ucfirst($_GET['do'])};
-    } else {
-        $DB = $Title;
     }
+} else {
+    $DB = $Title;
 }
 
 if (!isset($_SESSION['visited'])) {
