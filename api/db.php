@@ -122,3 +122,14 @@ function to($url)
     header("location:$url");
 }
 
+
+$Total = new DB('total');
+$Bottom = new DB('bottom');
+$Title = new DB('title');
+$Ad = new DB('ad');
+$Mvim = new DB('mvim');
+$Image = new DB('image');
+$News = new DB('mews');
+$Admin = new DB('admin');
+$Menu = new DB('menu');
+
