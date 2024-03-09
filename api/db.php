@@ -122,27 +122,3 @@ function to($url)
     header("location:$url");
 }
 
-$Total = new DB('total');
-$Bottom = new DB('bottom');
-$Title = new DB('title');
-$Ad = new DB('ad');
-$Mvim = new DB('mvim');
-$Image = new DB('image');
-$News = new DB('news');
-$Admin = new DB('admin');
-$Menu = new DB('menu');
-// 6.加入判斷do是什麼給$DB當資料表物件變數
-if (isset($_GET['do'])) {
-    if (isset(${ucfirst($_GET['do'])})) {
-        $DB = ${ucfirst($_GET['do'])};
-    }
-} else {
-    $DB = $Title;
-}
-// 6.end 加入判斷do是什麼給$DB當資料表物件變數
-
-// 29.進站人數的功能
-if (!isset($_SESSION['visited'])) {
-    $Total->q("update `total` set `total`=`total`+1 where `id`=1");
-    $_SESSION['visited'] = 1;
-}
