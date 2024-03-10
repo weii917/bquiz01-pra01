@@ -129,7 +129,20 @@ $Title = new DB('title');
 $Ad = new DB('ad');
 $Mvim = new DB('mvim');
 $Image = new DB('image');
-$News = new DB('mews');
+$News = new DB('news');
 $Admin = new DB('admin');
 $Menu = new DB('menu');
 
+
+if (isset($_GET['do'])) {
+    if (isset(${ucfirst($_GET['do'])})) {
+        $DB = ${ucfirst($_GET['do'])};
+    }
+} else {
+    $DB = $Title;
+}
+
+if (!isset($_SESSION['visited'])) {
+    $Total->q("update `total` set `total`=`total`+1 where `id`=1");
+    $_SESSION['visited'] = 1;
+}
