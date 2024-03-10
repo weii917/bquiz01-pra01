@@ -1,10 +1,5 @@
 <?php
-if (isset($_SESSION['user'])) {
-    to("back.php");
-}
-if (isset($_GET['error'])) {
-    echo "<script>alert('{$_GET['error']}')</script>";
-}
+// notice
 ?>
 <div class="di" style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
     <?php
